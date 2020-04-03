@@ -8,7 +8,7 @@ RSpec.describe "Amusement parks show page" do
                                     thrill_rating: 6)
     @ride2 = @elitches.rides.create!(name: "Superman",
                                     thrill_rating: 10)
-    @ride3 = @elitches.rides(name: "Petting Zoo",
+    @ride3 = @elitches.rides.create!(name: "Petting Zoo",
                             thrill_rating: 1)
   end
 
