@@ -15,7 +15,7 @@ RSpec.describe "Amusement parks show page" do
   it "can display that amusement park's information" do
     visit "/amusement_parks/#{@elitches.id}"
     expect(page).to have_content("Elitches")
-    expect(page).to have_content("$50.00")
+    expect(page).to have_content("Admissions: $50.00")
   end
 
 
