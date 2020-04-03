@@ -9,7 +9,7 @@ RSpec.describe AmusementPark do
     @ride2 = @elitches.rides.create!(name: "Superman",
                                     thrill_rating: 10)
     @ride3 = @elitches.rides.create!(name: "Petting Zoo",
-                            thrill_rating: 1)
+                            thrill_rating: 2)
   end
 
   describe 'relationships' do
@@ -19,6 +19,10 @@ RSpec.describe AmusementPark do
   describe 'instance methods' do
     it "#sort_rides_alphabetically" do
       expect(@elitches.sort_rides_alphabetically).to eq([@ride1, @ride3, @ride2])
+    end
+
+    it "#average_thrill_rating" do
+      expect(@elitches.average_thrill_rating).to eq(6.0)
     end
   end
 end
