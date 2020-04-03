@@ -9,7 +9,7 @@ RSpec.describe "Amusement parks show page" do
     @ride2 = @elitches.rides.create!(name: "Superman",
                                     thrill_rating: 10)
     @ride3 = @elitches.rides.create!(name: "Petting Zoo",
-                            thrill_rating: 1)
+                            thrill_rating: 2)
   end
 
   it "can display that amusement park's information" do
@@ -18,9 +18,19 @@ RSpec.describe "Amusement parks show page" do
     expect(page).to have_content("$50.00")
   end
 
+
   it "can display that amusement park's rides in alphabetical order" do
     visit "/amusement_parks/#{@elitches.id}"
     within "#park-rides" do
+      expect(page).to have_content("Rides:")
+      expect("Petting Zoo").to appear_before("Superman", only_text: true)
+    end
+  end
+
+  it "can display average thrill rating" do
+    visit "/amusement_parks/#{@elitches.id}"
+    within "#park-rides" do
+      expect(page).to have_content("Average Thrill Rating of Rides: 6.0/10")
     end
   end
 end
